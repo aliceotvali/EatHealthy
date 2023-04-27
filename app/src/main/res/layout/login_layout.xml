@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="@color/background_color"
+
+    app:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Имя пользователя:"
+            android:fontFamily="@font/montserrat_alternates_fat"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/ripple_color"
+            android:textColorHint="@color/ripple_color"
+            android:textSize="10sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameid"
+                android:hint=""
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/black"
+                android:textColorHint="@color/ripple_color"
+                android:textSize="20sp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пароль:"
+            android:fontFamily="@font/montserrat_alternates_fat"
+            android:inputType="textPassword"
+            android:text=""
+            android:textColor="@color/ripple_color"
+            android:textColorHint="@color/ripple_color"
+            android:textSize="10sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/passwordid"
+                android:hint=""
+                android:inputType="textPassword"
+                android:text=""
+                android:textColor="@color/black"
+                android:textColorHint="@color/ripple_color"
+                android:textSize="20sp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/login_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="#8c3ead"
+            android:fontFamily="@font/montserrat_alternates_fat"
+            android:onClick="login"
+            android:text="Войти"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
