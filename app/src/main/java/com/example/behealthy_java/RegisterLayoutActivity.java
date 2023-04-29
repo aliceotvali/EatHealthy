@@ -13,7 +13,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterLayoutActivity extends AppCompatActivity {
 
@@ -50,8 +49,9 @@ public class RegisterLayoutActivity extends AppCompatActivity {
                 try {
                     if (password_text.equals(checkpass)) {
                         db.execSQL(insert_string);
-                        Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Пользователь создан!", Toast.LENGTH_LONG);
-                        toast.show();
+                        //Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Пользователь создан!", Toast.LENGTH_LONG);
+                        //toast.show();
+                        register(v);
                     }
                     else {
                         Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Проверьте пароль!", Toast.LENGTH_LONG);
@@ -64,6 +64,11 @@ public class RegisterLayoutActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void register(View v) {
+        Intent intent = new Intent(this, RegistrationAnketaActivity.class);
+        startActivity(intent);
     }
 
 }

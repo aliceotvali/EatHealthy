@@ -43,19 +43,6 @@ public class MainActivity extends AppCompatActivity {
         // создаем базу данных
         databaseHelper.create_db();
     }
-    public void onResume() {
-        super.onResume();
-        // открываем подключение
-        //db = databaseHelper.open();
-        //получаем данные из бд в виде курсора
-        //userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE, null);
-        // определяем, какие столбцы из курсора будут выводиться в ListView
-        //String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_PASS};
-        // создаем адаптер, передаем в него курсор
-        //userAdapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item,
-        //        userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
-        //String pass_check_text = String.valueOf(userAdapter);
-    }
     public void register(View v) {
         Intent intent = new Intent(this, RegisterLayoutActivity.class);
         startActivity(intent);

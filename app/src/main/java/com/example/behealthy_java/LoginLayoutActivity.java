@@ -61,11 +61,16 @@ public class LoginLayoutActivity extends AppCompatActivity {
                     toast.show();
                 }
                 else {
-                    Toast toast = Toast.makeText(LoginLayoutActivity.this, "Кабинет пользователя в процессе разработки!", Toast.LENGTH_LONG);
-                    toast.show();
+                    //Toast toast = Toast.makeText(LoginLayoutActivity.this, "Кабинет пользователя в процессе разработки!", Toast.LENGTH_LONG);
+                    register(v);
+                    //toast.show();
                 }
             }
         });
+    }
+    public void register(View v) {
+        Intent intent = new Intent(this, RegistrationAnketaActivity.class);
+        startActivity(intent);
     }
 
 }

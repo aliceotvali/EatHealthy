@@ -11,7 +11,7 @@
         android:id="@+id/register_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="vertical">
@@ -22,7 +22,7 @@
             android:fontFamily="@font/capriola"
             android:text="@string/app_in_name"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/base_btn_color"
             android:textSize="35sp" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:fontFamily="@font/montserrat_alternates_fat"
             android:text="@string/app_name_after"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/base_btn_color"
             android:textSize="15sp" />
     </LinearLayout>
 
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:backgroundTint="#8c3ead"
+            android:backgroundTint="@color/base_btn_color"
             android:fontFamily="@font/montserrat_alternates_fat"
             android:onClick="register"
             android:text="Зарегистрироваться"
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:backgroundTint="#8c3ead"
+            android:backgroundTint="@color/base_btn_color"
             android:fontFamily="@font/montserrat_alternates_fat"
             android:onClick="login"
             android:text="Войти в аккаунт"

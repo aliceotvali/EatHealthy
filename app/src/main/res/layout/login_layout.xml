@@ -24,7 +24,7 @@
             android:textColor="@color/ripple_color"
             android:textColorHint="@color/ripple_color"
             android:textSize="10sp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/LoginTextInputLayoutStyle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/ripple_color"
                 android:textSize="20sp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/LoginTextInputLayoutStyle"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -50,7 +50,10 @@
             android:textColor="@color/ripple_color"
             android:textColorHint="@color/ripple_color"
             android:textSize="10sp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/LoginTextInputLayoutStyle"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/ripple_color"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -62,7 +65,8 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/ripple_color"
                 android:textSize="20sp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                style="@style/LoginTextInputLayoutStyle"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:backgroundTint="#8c3ead"
+            android:backgroundTint="@color/base_btn_color"
             android:fontFamily="@font/montserrat_alternates_fat"
             android:onClick="login"
             android:text="Войти"

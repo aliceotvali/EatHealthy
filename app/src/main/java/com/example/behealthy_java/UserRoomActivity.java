@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class resgistration_anketa extends AppCompatActivity {
+public class UserRoomActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.resgistration_anketa_layout);
+        setContentView(R.layout.user_room);
     }
 }

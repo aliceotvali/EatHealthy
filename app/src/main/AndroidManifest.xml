@@ -12,7 +12,10 @@
         android:theme="@style/Theme.BeHealthy_Java"
         tools:targetApi="31">
         <activity
-            android:name=".resgistration_anketa"
+            android:name=".UserRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationAnketaActivity"
             android:exported="false" />
         <activity
             android:name=".test_db"

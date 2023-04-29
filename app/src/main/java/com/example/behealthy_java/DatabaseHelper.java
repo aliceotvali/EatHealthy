@@ -15,7 +15,7 @@ import java.io.OutputStream;
 class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_PATH; // полный путь к базе данных
     private static String DB_NAME = "BeHealthyDatabase2.db";
-    private static final int VERSION = 2; // версия базы данных
+    private static final int VERSION = 3; // версия базы данных
     private Context myContext;
     private boolean mNeedUpdate = false;
     private SQLiteDatabase mDataBase;
