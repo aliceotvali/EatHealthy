@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_navigation"
+    app:startDestination="@id/home_page">
+
+    <fragment
+        android:id="@+id/home_page"
+        android:name="com.example.behealthy_java.HomeFragmentActivity"
+        android:label="fragment_home_activity"
+        tools:layout="@layout/fragment_home_activity" />
+    <fragment
+        android:id="@+id/diary_page"
+        android:name="com.example.behealthy_java.DiaryFragmentActivity"
+        android:label="fragment_diary_activity"
+        tools:layout="@layout/fragment_diary_activity" />
+    <fragment
+        android:id="@+id/menu_page"
+        android:name="com.example.behealthy_java.MenuFragmentActivity"
+        android:label="fragment_menu_activity"
+        tools:layout="@layout/fragment_menu_activity" />
+</navigation>

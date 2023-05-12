@@ -20,4 +20,10 @@
         <item name="hintTextColor">@color/ripple_color</item>
         <item name="boxStrokeWidth">2dp</item>
     </style>
+    <style name="TextForUser" parent="ThemeOverlay.Material3.AutoCompleteTextView">
+        <item name="android:textColor">@color/ripple_color</item>
+        <item name="fontFamily">@font/montserrat_alternates_fat</item>
+        <item name="android:layout_margin">50dp</item>
+        <item name="android:textSize">20dp</item>
+    </style>
 </resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".HomeFragmentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="150dp">
+
+
+        <TextView
+            android:id="@+id/age_view"
+            android:layout_margin="10dp"
+            android:theme="@style/TextForUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваш возраст:" />
+
+        <TextView
+            android:id="@+id/height_view"
+            android:layout_margin="10dp"
+            android:theme="@style/TextForUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваш рост (в см):" />
+
+        <TextView
+            android:id="@+id/weight_view"
+            android:layout_margin="10dp"
+            android:theme="@style/TextForUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваш вес (в кг): " />
+
+        <TextView
+            android:id="@+id/activity_view"
+            android:layout_margin="10dp"
+            android:theme="@style/TextForUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваш образ жизни:" />
+
+        <TextView
+            android:id="@+id/purpose_view"
+            android:layout_margin="10dp"
+            android:theme="@style/TextForUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваша цель: " />
+
+        <Button
+            android:id="@+id/change_anketa"
+            android:layout_gravity="center"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/base_btn_color"
+            android:fontFamily="@font/montserrat_alternates_fat"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Что-то изменилось?" />
+    </LinearLayout>
+</FrameLayout>

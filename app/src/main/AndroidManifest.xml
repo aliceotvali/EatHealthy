@@ -12,6 +12,9 @@
         android:theme="@style/Theme.BeHealthy_Java"
         tools:targetApi="31">
         <activity
+            android:name=".MenuRoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserRoomActivity"
             android:exported="false" />
         <activity

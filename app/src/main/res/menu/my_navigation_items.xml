@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home_page"
+        android:title="Моя страница"
+        android:icon="@drawable/baseline_home_24"
+        android:iconTint="@color/ripple_color"/>
+    <item android:id="@+id/menu_page"
+        android:title="Меню"
+        android:icon="@drawable/baseline_local_dining_24"
+        android:iconTint="@color/ripple_color"/>
+    <item android:id="@+id/diary_page"
+        android:title="Дневник"
+        android:icon="@drawable/baseline_menu_book_24"
+        android:iconTint="@color/ripple_color"/>
+</menu>

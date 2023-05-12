@@ -52,26 +52,28 @@
 
 
         <Button
-            android:id="@+id/signup_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:backgroundTint="@color/base_btn_color"
-            android:fontFamily="@font/montserrat_alternates_fat"
-            android:onClick="register"
-            android:text="Зарегистрироваться"
-            android:textColor="@color/white" />
-
-        <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
+
             android:backgroundTint="@color/base_btn_color"
             android:fontFamily="@font/montserrat_alternates_fat"
             android:onClick="login"
             android:text="Войти в аккаунт"
             android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/signup_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:backgroundTint="@color/base_btn_color"
+            android:fontFamily="@font/montserrat_alternates_fat"
+            android:onClick="register"
+            android:text="Ещё нет аккаунта? Создай!"
+            android:textColor="@color/base_btn_color" />
+
     </LinearLayout>
 
     <ListView

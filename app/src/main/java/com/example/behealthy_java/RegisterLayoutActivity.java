@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.io.Serializable;
+
 public class RegisterLayoutActivity extends AppCompatActivity {
 
     DatabaseHelper sqlHelper;
@@ -21,6 +23,7 @@ public class RegisterLayoutActivity extends AppCompatActivity {
     Cursor userCursor;
     SimpleCursorAdapter userAdapter;
     Button reg_button;
+    String UserID;
 
 
     @Override
@@ -49,9 +52,12 @@ public class RegisterLayoutActivity extends AppCompatActivity {
                 try {
                     if (password_text.equals(checkpass)) {
                         db.execSQL(insert_string);
-                        //Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Пользователь создан!", Toast.LENGTH_LONG);
-                        //toast.show();
-                        register(v);
+                        String select_string = "SELECT _id FROM USERS WHERE Name='" + username_text + "' AND Password = '"+ password_text +"'";
+                        Cursor c = db.rawQuery(select_string, null);
+                        while(c.moveToNext()){
+                            UserID = c.getString(c.getColumnIndexOrThrow ("_id"));
+                        }
+                        register(v, UserID, username_text, password_text);
                     }
                     else {
                         Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Проверьте пароль!", Toast.LENGTH_LONG);
@@ -66,8 +72,13 @@ public class RegisterLayoutActivity extends AppCompatActivity {
         });
     }
 
-    public void register(View v) {
+    public void register(View v, String UserID, String username, String password) {
+        User user = new User();
+        user.name = username;
+        user.password = password;
+        user.UserID = Integer.valueOf(UserID);
         Intent intent = new Intent(this, RegistrationAnketaActivity.class);
+        intent.putExtra("user", (Serializable) user);
         startActivity(intent);
     }
 

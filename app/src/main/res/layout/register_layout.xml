@@ -104,7 +104,7 @@
             android:backgroundTint="@color/base_btn_color"
             android:fontFamily="@font/montserrat_alternates_fat"
             android:onClick="login"
-            android:text="Зарегистрироваться"
+            android:text="Далее"
             android:textColor="@color/white" />
 
     </LinearLayout>

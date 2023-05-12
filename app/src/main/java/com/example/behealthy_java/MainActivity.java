@@ -26,7 +26,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
-    SQLiteDatabase db;
+    static SQLiteDatabase db;
     Cursor userCursor;
     SimpleCursorAdapter userAdapter;
     Button register_button, signin_button;
