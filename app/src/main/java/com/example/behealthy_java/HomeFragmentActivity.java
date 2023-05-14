@@ -51,8 +51,6 @@ public class HomeFragmentActivity extends Fragment {
             }
         });
 
-
-
         return rootView;
     }
 

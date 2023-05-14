@@ -2,6 +2,7 @@ package com.example.behealthy_java;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class UserRoomActivity extends AppCompatActivity {
 
         Bundle user_bundle = new Bundle();
         user_bundle.putSerializable("user", user);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_room);

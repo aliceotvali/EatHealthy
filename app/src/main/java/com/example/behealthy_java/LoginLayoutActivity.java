@@ -97,8 +97,6 @@ public class LoginLayoutActivity extends AppCompatActivity {
         user.setPurpose();
         user.setActivityName();
         user.setPurposeName();
-
-        System.out.println("Функция подсчета:");
         user.setCFPC();
 
         return (user);

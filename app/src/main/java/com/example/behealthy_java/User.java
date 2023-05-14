@@ -10,11 +10,11 @@ import java.text.NumberFormat;
 public class User implements Serializable {
     public String gender, name, password, activityName, purposeName;
     public Integer ActivityNum, PurposeNum, UserID, age, weight, height;
-    private double FatsNorm;
-    private double ProteinsNorm;
-    private double CarboNorm;
-    private double CaloriesNorm;
-    private Integer BMR;
+    public double FatsNorm;
+    public double ProteinsNorm;
+    public double CarboNorm;
+    public double CaloriesNorm;
+    public Integer BMR;
     public transient SQLiteDatabase db;
 
     public String getUserName(){
@@ -146,6 +146,7 @@ public class User implements Serializable {
             default:
                 System.out.println("Нет такой активности, невозможная ошибка");}
         this.CaloriesNorm = Math.round(countCalories(A) * 100.00)/100.00;
+        System.out.println("Норма ккал " + this.CaloriesNorm);
         this.countPFC();
         this.updateCaloriesNorm();
         this.updateProteinsNorm();

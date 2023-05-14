@@ -30,6 +30,7 @@ public class MenuFragmentActivity extends Fragment {
     View rootView;
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
+    User user;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,8 +38,11 @@ public class MenuFragmentActivity extends Fragment {
         SmartMaterialSpinner product_spinner = rootView.findViewById(R.id.product_spinner);
         Button select_product_button = rootView.findViewById(R.id.select_product_btn);
         Button create_menu_button = rootView.findViewById(R.id.create_menu_btn);
+
         Bundle bundle = getArguments();
-        User user = (User) bundle.getSerializable("user_for_anketa");
+        user = (User) bundle.get("user");
+        System.out.println("Мое имя из фрагмента: " + user.name);
+
         sqlHelper = new DatabaseHelper(getActivity());
         db = sqlHelper.open();
 
@@ -72,8 +76,8 @@ public class MenuFragmentActivity extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MenuRoomActivity.class);
-                intent.putExtra("user", (Serializable) user);
-                intent.putExtra("products_array", (CharSequence) user_products_array);
+                intent.putExtra("user", user);
+                intent.putExtra("products_array", (ArrayList<String>) user_products_array);
                 startActivity(intent);
             }
         });
