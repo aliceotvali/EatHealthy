@@ -8,15 +8,27 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/montserrat_alternates_fat"
+            android:gravity="center"
+            android:textColor="@color/base_btn_color"
+            android:textSize="20sp"
+            android:text="Что едим сегодня?" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="69dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
@@ -49,8 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:fontFamily="@font/montserrat_alternates_fat"
             android:text="Вами выбраны: "
+            android:fontFamily="@font/montserrat_alternates_fat"
             android:textColor="@color/ripple_color"
             android:textSize="16sp" />
 

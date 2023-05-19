@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:layout_marginTop="150dp">
 
-
         <TextView
             android:id="@+id/age_view"
             android:layout_margin="10dp"
@@ -53,6 +52,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ваша цель: " />
+
+        <TextView
+            android:id="@+id/ccal_view"
+            android:layout_margin="10dp"
+            android:theme="@style/TextForUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Суточная норма ккал: " />
 
         <Button
             android:id="@+id/change_anketa"

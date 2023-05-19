@@ -26,17 +26,14 @@ public class UserRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Bundle arguments = getIntent().getExtras();
         User user = (User) arguments.get("user");
-
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.open();
 
         Bundle user_bundle = new Bundle();
         user_bundle.putSerializable("user", user);
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_room);
-
 
         menu = findViewById(R.id.menu);
         home_fragment.setArguments(user_bundle);

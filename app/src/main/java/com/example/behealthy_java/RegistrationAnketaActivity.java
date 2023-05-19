@@ -68,7 +68,7 @@ public class RegistrationAnketaActivity extends AppCompatActivity {
                     user.height = Integer.valueOf(height_input.getText().toString());
                     user.weight = Integer.valueOf(weight_input.getText().toString());
 
-                    //user.CreateUser(); //заполнение USER_INFO
+                    //заполнение USER_INFO
                     String insert_string2 = "INSERT INTO USERS_INFO (_id, Gender, ActivityNum, Purpose2, Age, Weight, Height) " +
                             "VALUES ('" + user.UserID + "', '" + user.gender + "', '" + user.ActivityNum + "', '" + user.PurposeNum+ "', " +
                             "'" + user.age + "', '" + user.weight + "', '" + user.height +"')";

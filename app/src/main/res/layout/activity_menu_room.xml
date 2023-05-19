@@ -1,9 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".MenuRoomActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/main_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text="Ваш рекомендованный рацион:"
+                android:textAlignment="center"
+                android:textColor="@color/base_btn_color"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/CPFC_final_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/base_btn_color"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/breakfast_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/breakfast_CPFC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/breakfast_structure_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/breakfast_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/lunch_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/lunch_CPFC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/lunch_structure_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/lunch_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dinner_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/dinner_CPFC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dinner_structure_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dinner_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text=""
+                android:textColor="@color/base_btn_color"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

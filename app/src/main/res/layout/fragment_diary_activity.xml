@@ -7,4 +7,194 @@
     tools:context=".DiaryFragmentActivity">
 
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/calories_left"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Осталость калорий: "
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:textColor="@color/ripple_color"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/calories_eaten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Употреблено калорий: "
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:textColor="@color/ripple_color"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/breakfast_eaten"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_alternates_fat"
+                        android:text="Завтрак: "
+                        android:textColor="@color/ripple_color"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/b_eaten_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/base_btn_color"
+                        android:fontFamily="@font/montserrat_alternates_fat"
+                        android:text="Добавить"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/breakfast_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                        android:id="@+id/b_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:focusableInTouchMode="false"
+                        app:smsp_baseColor="@color/ripple_color"
+                        app:smsp_hint="Выберите продукт из списка: "
+                        app:smsp_hintColor="@color/ripple_color"
+                        app:smsp_isSearchable="true"
+                        app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                        app:smsp_searchHeaderText="Список продуктов:" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lunch_eaten"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_alternates_fat"
+                        android:text="Обед:        "
+                        android:textColor="@color/ripple_color"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/l_eaten_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/base_btn_color"
+                        android:fontFamily="@font/montserrat_alternates_fat"
+                        android:text="Добавить"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lunch_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                        android:id="@+id/l_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:focusableInTouchMode="false"
+                        app:smsp_baseColor="@color/ripple_color"
+                        app:smsp_hint="Выберите продукт из списка: "
+                        app:smsp_hintColor="@color/ripple_color"
+                        app:smsp_isSearchable="true"
+                        app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                        app:smsp_searchHeaderText="Список продуктов:" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/dinner_eaten"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_alternates_fat"
+                        android:text="Ужин:        "
+                        android:textColor="@color/ripple_color"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/d_eaten_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/base_btn_color"
+                        android:fontFamily="@font/montserrat_alternates_fat"
+                        android:text="Добавить"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dinner_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                        android:id="@+id/d_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:focusableInTouchMode="false"
+                        app:smsp_baseColor="@color/ripple_color"
+                        app:smsp_hint="Выберите продукт из списка: "
+                        app:smsp_hintColor="@color/ripple_color"
+                        app:smsp_isSearchable="true"
+                        app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                        app:smsp_searchHeaderText="Список продуктов:" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/accept_eaten_btn"
+                android:backgroundTint="@color/base_btn_color"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="готово" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>
