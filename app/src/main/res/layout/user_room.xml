@@ -9,6 +9,10 @@
     android:id="@+id/containerForMenu">
 
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu"

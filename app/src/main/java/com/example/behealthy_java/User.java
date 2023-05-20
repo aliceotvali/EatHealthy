@@ -6,6 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class User implements Serializable {
     public String gender, name, password, activityName, purposeName;
@@ -16,6 +20,23 @@ public class User implements Serializable {
     public double CaloriesNorm;
     public Integer BMR;
     public transient SQLiteDatabase db;
+    public Map breakfast_list, lunch_list, dinner_list;
+    public String breakfast_str_view, lunch_str_view, dinner_str_view;
+    public Double calories_eaten, calories_left, proteins_eaten, fats_eaten, carbo_eaten;
+
+    public void createLists(){
+        proteins_eaten = Double.valueOf(0);
+        fats_eaten = Double.valueOf(0);
+        carbo_eaten = Double.valueOf(0);
+        calories_eaten = Double.valueOf(0);
+        calories_left = this.CaloriesNorm;
+        breakfast_str_view = "";
+        lunch_str_view = "";
+        dinner_str_view = "";
+        breakfast_list = new HashMap<Integer,String>();
+        lunch_list = new HashMap<Integer,String>();
+        dinner_list = new HashMap<Integer,String>();
+    }
 
     public String getUserName(){
         return (this.name);

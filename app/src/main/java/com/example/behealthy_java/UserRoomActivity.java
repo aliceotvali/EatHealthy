@@ -13,7 +13,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.Serializable;
 
-public class UserRoomActivity extends AppCompatActivity {
+public class UserRoomActivity extends AppCompatActivity implements MyDialogFragmentListener {
 
     BottomNavigationView menu;
     HomeFragmentActivity home_fragment = new HomeFragmentActivity();
@@ -21,6 +21,7 @@ public class UserRoomActivity extends AppCompatActivity {
     DiaryFragmentActivity diary_fragment = new DiaryFragmentActivity();
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
+    Integer weight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class UserRoomActivity extends AppCompatActivity {
         User user = (User) arguments.get("user");
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.open();
+        user.createLists();
 
         Bundle user_bundle = new Bundle();
         user_bundle.putSerializable("user", user);
@@ -58,6 +60,16 @@ public class UserRoomActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
+
+    public void onReturnValue(Integer weight2) {
+        weight = weight2;
+        System.out.println("onReturnValue вес: " + weight);
+    }
+
+    public Integer ReturnToFragment(){
+        System.out.println("вес из ReturnToFragment " + weight);
+        return weight;
+    }
+
 }

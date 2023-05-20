@@ -6,21 +6,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".DiaryFragmentActivity">
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="50dp"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="20dp">
 
             <TextView
                 android:id="@+id/calories_left"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Осталость калорий: "
@@ -36,6 +37,112 @@
                 android:fontFamily="@font/montserrat_alternates_fat"
                 android:textColor="@color/ripple_color"
                 android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/PFC_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:textColor="@color/ripple_color"
+                android:textSize="16sp"
+                android:text="Б/Ж/У: " />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewGraph"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <org.eazegraph.lib.charts.PieChart
+                    android:id="@+id/piechart"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:padding="6dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp">
+
+                        <View
+                            android:layout_width="15dp"
+                            android:layout_height="match_parent"
+                            android:background="#f3da0b"/>
+
+                        <!--Text view to display python text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Белки"
+                            android:paddingLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp">
+
+                        <View
+                            android:layout_width="15dp"
+                            android:layout_height="match_parent"
+                            android:background="#ff4e33"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Жиры"
+                            android:paddingLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp">
+
+                        <View
+                            android:layout_width="15dp"
+                            android:layout_height="match_parent"
+                            android:background="#75c1ff"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Углеводы"
+                            android:paddingLeft="10dp"/>
+
+                    </LinearLayout>
+
+            </LinearLayout>
+            </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,6 +191,12 @@
                         app:smsp_isSearchable="true"
                         app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
                         app:smsp_searchHeaderText="Список продуктов:" />
+
+                    <TextView
+                        android:id="@+id/breakfast_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -133,6 +246,12 @@
                         app:smsp_isSearchable="true"
                         app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
                         app:smsp_searchHeaderText="Список продуктов:" />
+
+                    <TextView
+                        android:id="@+id/lunch_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -182,18 +301,15 @@
                         app:smsp_isSearchable="true"
                         app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
                         app:smsp_searchHeaderText="Список продуктов:" />
+
+                    <TextView
+                        android:id="@+id/dinner_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
                 </LinearLayout>
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/accept_eaten_btn"
-                android:backgroundTint="@color/base_btn_color"
-                android:fontFamily="@font/montserrat_alternates_fat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="готово" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
