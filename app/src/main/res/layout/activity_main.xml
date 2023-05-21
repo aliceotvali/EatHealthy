@@ -55,7 +55,6 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:backgroundTint="@color/base_btn_color"
             android:fontFamily="@font/montserrat_alternates_fat"
             android:onClick="login"

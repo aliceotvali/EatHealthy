@@ -4,72 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/background_pink"
     tools:context=".HomeFragmentActivity">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="150dp">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        app:cardCornerRadius="40dp"
+        >
 
-        <TextView
-            android:id="@+id/age_view"
-            android:layout_margin="10dp"
-            android:theme="@style/TextForUser"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ваш возраст:" />
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/height_view"
-            android:layout_margin="10dp"
-            android:theme="@style/TextForUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ваш рост (в см):" />
+            <TextView
+                android:id="@+id/age_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:text="Ваш возраст:"
+                android:theme="@style/TextForUser" />
 
-        <TextView
-            android:id="@+id/weight_view"
-            android:layout_margin="10dp"
-            android:theme="@style/TextForUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ваш вес (в кг): " />
+            <TextView
+                android:id="@+id/height_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Ваш рост (в см):"
+                android:theme="@style/TextForUser" />
 
-        <TextView
-            android:id="@+id/activity_view"
-            android:layout_margin="10dp"
-            android:theme="@style/TextForUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ваш образ жизни:" />
+            <TextView
+                android:id="@+id/weight_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Ваш вес (в кг): "
+                android:theme="@style/TextForUser" />
 
-        <TextView
-            android:id="@+id/purpose_view"
-            android:layout_margin="10dp"
-            android:theme="@style/TextForUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ваша цель: " />
+            <TextView
+                android:id="@+id/activity_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Ваш образ жизни:"
+                android:theme="@style/TextForUser" />
 
-        <TextView
-            android:id="@+id/ccal_view"
-            android:layout_margin="10dp"
-            android:theme="@style/TextForUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Суточная норма ккал: " />
+            <TextView
+                android:id="@+id/purpose_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Ваша цель: "
+                android:theme="@style/TextForUser" />
 
-        <Button
-            android:id="@+id/change_anketa"
-            android:layout_gravity="center"
-            style="?android:attr/borderlessButtonStyle"
-            android:textColor="@color/base_btn_color"
-            android:fontFamily="@font/montserrat_alternates_fat"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Что-то изменилось?" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/ccal_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Суточная норма ккал: "
+                android:theme="@style/TextForUser" />
+
+            <Button
+                android:id="@+id/change_anketa"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:text="Что-то изменилось?"
+                android:textColor="@color/pink_btn_color" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </FrameLayout>

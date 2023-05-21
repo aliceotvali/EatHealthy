@@ -74,11 +74,11 @@ public class DiaryFragmentActivity extends Fragment{
         calories_left.setText("Осталось калорий: " + Math.round(user.calories_left * 100.00)/100.00);
         calories_eaten.setText("Употреблено калорий: " + Math.round(user.calories_eaten * 100.00)/100.00);
         PFC_view.setText("Б/Ж/У: " + user.proteins_eaten + "/" + user.fats_eaten + "/" + user.carbo_eaten);
-        breakfast_list_view.setTextColor(Color.parseColor("#705DC5"));
+        breakfast_list_view.setTextColor(Color.parseColor("#476dd6"));
         breakfast_list_view.setTextSize(14);
-        lunch_list_view.setTextColor(Color.parseColor("#705DC5"));
+        lunch_list_view.setTextColor(Color.parseColor("#476dd6"));
         lunch_list_view.setTextSize(14);
-        dinner_list_view.setTextColor(Color.parseColor("#705DC5"));
+        dinner_list_view.setTextColor(Color.parseColor("#476dd6"));
         dinner_list_view.setTextSize(14);
 
         if (user.breakfast_list!=null){
@@ -141,7 +141,7 @@ public class DiaryFragmentActivity extends Fragment{
             array.add(selected_product);
             System.out.println(array);
             TextView product_textview = new TextView(getActivity());
-            product_textview.setTextColor(Color.parseColor("#705DC5"));
+            product_textview.setTextColor(Color.parseColor("#476dd6"));
             product_textview.setTextSize(14);
 
             //вызов диалога с весом

@@ -65,7 +65,7 @@ public class MenuFragmentActivity extends Fragment {
                     TextView product_textview = new TextView(getActivity());
                     product_textview.setTextColor(Color.parseColor("#705DC5"));
                     product_textview.setText(selected_product);
-                    product_textview.setTextSize(14);
+                    product_textview.setTextSize(16);
                     linearLayout.addView(product_textview);
                 };
             }

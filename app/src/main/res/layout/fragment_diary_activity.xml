@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_blue"
     tools:context=".DiaryFragmentActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -22,28 +23,31 @@
             <TextView
                 android:id="@+id/calories_left"
                 android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:text="Осталость калорий: "
                 android:fontFamily="@font/montserrat_alternates_fat"
-                android:textColor="@color/ripple_color"
+                android:textColor="@color/ripple_blue"
                 android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/calories_eaten"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:text="Употреблено калорий: "
                 android:fontFamily="@font/montserrat_alternates_fat"
-                android:textColor="@color/ripple_color"
+                android:textColor="@color/ripple_blue"
                 android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/PFC_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:fontFamily="@font/montserrat_alternates_fat"
-                android:textColor="@color/ripple_color"
+                android:textColor="@color/ripple_blue"
                 android:textSize="16sp"
                 android:text="Б/Ж/У: " />
 
@@ -161,14 +165,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_alternates_fat"
                         android:text="Завтрак: "
-                        android:textColor="@color/ripple_color"
+                        android:textColor="@color/ripple_blue"
                         android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/b_eaten_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/base_btn_color"
+                        android:backgroundTint="@color/blue_btn_color"
                         android:fontFamily="@font/montserrat_alternates_fat"
                         android:text="Добавить"
                         android:textSize="10sp" />
@@ -185,11 +189,11 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:focusableInTouchMode="false"
-                        app:smsp_baseColor="@color/ripple_color"
+                        app:smsp_baseColor="@color/ripple_blue"
                         app:smsp_hint="Выберите продукт из списка: "
-                        app:smsp_hintColor="@color/ripple_color"
+                        app:smsp_hintColor="@color/ripple_blue"
                         app:smsp_isSearchable="true"
-                        app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                        app:smsp_searchHeaderBackgroundColor="@color/ripple_blue"
                         app:smsp_searchHeaderText="Список продуктов:" />
 
                     <TextView
@@ -216,14 +220,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_alternates_fat"
                         android:text="Обед:        "
-                        android:textColor="@color/ripple_color"
+                        android:textColor="@color/ripple_blue"
                         android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/l_eaten_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/base_btn_color"
+                        android:backgroundTint="@color/blue_btn_color"
                         android:fontFamily="@font/montserrat_alternates_fat"
                         android:text="Добавить"
                         android:textSize="10sp" />
@@ -240,11 +244,11 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:focusableInTouchMode="false"
-                        app:smsp_baseColor="@color/ripple_color"
+                        app:smsp_baseColor="@color/ripple_blue"
                         app:smsp_hint="Выберите продукт из списка: "
-                        app:smsp_hintColor="@color/ripple_color"
+                        app:smsp_hintColor="@color/ripple_blue"
                         app:smsp_isSearchable="true"
-                        app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                        app:smsp_searchHeaderBackgroundColor="@color/ripple_blue"
                         app:smsp_searchHeaderText="Список продуктов:" />
 
                     <TextView
@@ -271,14 +275,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_alternates_fat"
                         android:text="Ужин:        "
-                        android:textColor="@color/ripple_color"
+                        android:textColor="@color/ripple_blue"
                         android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/d_eaten_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/base_btn_color"
+                        android:backgroundTint="@color/blue_btn_color"
                         android:fontFamily="@font/montserrat_alternates_fat"
                         android:text="Добавить"
                         android:textSize="10sp" />
@@ -295,11 +299,11 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:focusableInTouchMode="false"
-                        app:smsp_baseColor="@color/ripple_color"
+                        app:smsp_baseColor="@color/ripple_blue"
                         app:smsp_hint="Выберите продукт из списка: "
-                        app:smsp_hintColor="@color/ripple_color"
+                        app:smsp_hintColor="@color/ripple_blue"
                         app:smsp_isSearchable="true"
-                        app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                        app:smsp_searchHeaderBackgroundColor="@color/ripple_blue"
                         app:smsp_searchHeaderText="Список продуктов:" />
 
                     <TextView

@@ -9,83 +9,107 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:fontFamily="@font/montserrat_alternates_fat"
-            android:gravity="center"
-            android:textColor="@color/base_btn_color"
-            android:textSize="20sp"
-            android:text="Что едим сегодня?" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingBottom="50dp"
+        android:layout_marginTop="45dp"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
-                android:id="@+id/product_spinner"
-                android:layout_width="247dp"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:focusableInTouchMode="false"
-                app:smsp_baseColor="@color/ripple_color"
-                app:smsp_hint="Выберите продукт из списка: "
-                app:smsp_hintColor="@color/ripple_color"
-                app:smsp_isSearchable="true"
-                app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
-                app:smsp_searchHeaderText="Список продуктов:" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:gravity="center"
+                android:text="Что едим сегодня?"
+                android:textColor="@color/base_btn_color"
+                android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/select_product_btn"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/product_spinner"
+                    android:layout_width="247dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:focusableInTouchMode="false"
+                    app:smsp_baseColor="@color/ripple_color"
+                    app:smsp_hint="Выберите продукт из списка: "
+                    app:smsp_hintColor="@color/ripple_color"
+                    app:smsp_isSearchable="true"
+                    app:smsp_searchHeaderBackgroundColor="@color/ripple_color"
+                    app:smsp_searchHeaderText="Список продуктов:" />
+
+                <Button
+                    android:id="@+id/select_product_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/base_btn_color"
+                    android:fontFamily="@font/montserrat_alternates_fat"
+                    android:text="Добавить"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_alternates_fat"
+                android:gravity="center"
+                android:text="Вами выбраны: "
+                android:textColor="@color/ripple_color"
+                android:textSize="16sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:id="@+id/choice_product_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical"></LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/create_menu_btn"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/base_btn_color"
                 android:fontFamily="@font/montserrat_alternates_fat"
-                android:text="Добавить"
+                android:text="Составить меню"
                 android:textSize="10sp" />
 
+
+
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Вами выбраны: "
-            android:fontFamily="@font/montserrat_alternates_fat"
-            android:textColor="@color/ripple_color"
-            android:textSize="16sp" />
-
-        <LinearLayout
-            android:id="@+id/choice_product_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:orientation="vertical"></LinearLayout>
-
-        <Button
-            android:id="@+id/create_menu_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/base_btn_color"
-            android:fontFamily="@font/montserrat_alternates_fat"
-            android:text="Составить меню"
-            android:textSize="10sp" />
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </FrameLayout>

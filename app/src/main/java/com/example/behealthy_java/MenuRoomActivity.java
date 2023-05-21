@@ -182,6 +182,10 @@ public class MenuRoomActivity extends AppCompatActivity {
         simplex.carbo[2] = PFCofMeal(third_meal, "Carbo");
 
         simplex.initialize();*/
+        CheckMenu checkMenu = new CheckMenu();
+        checkMenu.db = db;
+        checkMenu.user = user;
+        checkMenu.CheckMeal(first_meal, second_meal, third_meal);
 
     }
 
