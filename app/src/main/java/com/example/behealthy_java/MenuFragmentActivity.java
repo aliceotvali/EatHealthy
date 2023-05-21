@@ -41,7 +41,6 @@ public class MenuFragmentActivity extends Fragment {
 
         Bundle bundle = getArguments();
         user = (User) bundle.get("user");
-        System.out.println("Мое имя из фрагмента: " + user.name);
 
         sqlHelper = new DatabaseHelper(getActivity());
         db = sqlHelper.open();

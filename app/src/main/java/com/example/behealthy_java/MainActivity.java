@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(getApplicationContext());
         // создаем базу данных
         databaseHelper.create_db();
+
     }
     public void register(View v) {
         Intent intent = new Intent(this, RegisterLayoutActivity.class);

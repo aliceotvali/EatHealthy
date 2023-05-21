@@ -137,6 +137,52 @@ public class MenuRoomActivity extends AppCompatActivity {
         dinner_CPFC.setText("КБЖУ: " + d_ccal_final + "/" + d_pro_final + "/" + d_fat_final + "/" + d_car_final);
         structure_dinner.setText(dinner_structure);
         description_dinner.setText(GetMealDescription(third_meal));
+
+        //СИМПЛЕКС-МЕТОД НАЧАЛО
+        /*SimplexMethod simplex = new SimplexMethod();
+        simplex.user = user;
+        simplex.caloriesNorm = CaloriesNorm;
+        simplex.proteinsNorm = user.ProteinsNorm;
+        simplex.fatsNorm = user.FatsNorm;
+        simplex.carboNorm = user.CarboNorm;
+
+        simplex.b_ccal = first_meal_calories;
+        simplex.b_proteins = PFCofMeal(first_meal, "Proteins");
+        simplex.b_fats = PFCofMeal(first_meal, "Fats");
+        simplex.b_carbo = PFCofMeal(first_meal, "Carbo");
+
+        simplex.l_ccal = second_meal_calories;
+        simplex.l_proteins = PFCofMeal(second_meal, "Proteins");
+        simplex.l_fats = PFCofMeal(second_meal, "Fats");
+        simplex.l_carbo = PFCofMeal(second_meal, "Carbo");
+
+        simplex.d_ccal = third_meal_calories;
+        simplex.d_proteins = PFCofMeal(third_meal, "Proteins");
+        simplex.d_fats = PFCofMeal(third_meal, "Fats");
+        simplex.d_carbo = PFCofMeal(third_meal, "Carbo");
+
+        //массив калорийностей
+        simplex.ccal[0] = first_meal_calories;
+        simplex.ccal[1] = second_meal_calories;
+        simplex.ccal[2] = third_meal_calories;
+
+        //массив белков
+        simplex.proteins[0] = PFCofMeal(first_meal, "Proteins");
+        simplex.proteins[1] = PFCofMeal(second_meal, "Proteins");
+        simplex.proteins[2] = PFCofMeal(third_meal, "Proteins");
+
+        //массив жиров
+        simplex.fats[0] = PFCofMeal(first_meal, "Fats");
+        simplex.fats[1] = PFCofMeal(second_meal, "Fats");
+        simplex.fats[2] = PFCofMeal(third_meal, "Fats");
+
+        //массив углеводов
+        simplex.carbo[0] = PFCofMeal(first_meal, "Carbo");
+        simplex.carbo[1] = PFCofMeal(second_meal, "Carbo");
+        simplex.carbo[2] = PFCofMeal(third_meal, "Carbo");
+
+        simplex.initialize();*/
+
     }
 
     //рандомно выбираем блюдо из предложенных
