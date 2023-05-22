@@ -6,13 +6,14 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/health"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeHealthy_Java"
         tools:targetApi="31">
         <activity
             android:name=".MenuRoomActivity"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".UserRoomActivity"
@@ -25,9 +26,11 @@
             android:exported="false" />
         <activity
             android:name=".LoginLayoutActivity"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".RegisterLayoutActivity"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"

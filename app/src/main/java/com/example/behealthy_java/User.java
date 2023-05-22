@@ -109,7 +109,6 @@ public class User implements Serializable {
 
     public void setActivityName() {
         String select_string = "SELECT Description FROM ACTIVITY WHERE _IdActivity='" + this.ActivityNum +"'";
-        System.out.println(select_string);
         Cursor c2 = db.rawQuery(select_string, null);
         while(c2.moveToNext()){
             this.activityName = c2.getString(c2.getColumnIndexOrThrow("Description"));
@@ -117,7 +116,7 @@ public class User implements Serializable {
     }
 
     public void setPurposeName() {
-        String select_string = "SELECT Description FROM PURPOSE WHERE _idPurpose='" + this.PurposeNum +"'";
+        String select_string = "SELECT Description FROM PURPOSE WHERE _idPurpose='" + this.PurposeNum + "'";
         Cursor c2 = db.rawQuery(select_string, null);
         while(c2.moveToNext()){
             this.purposeName = c2.getString(c2.getColumnIndexOrThrow("Description"));

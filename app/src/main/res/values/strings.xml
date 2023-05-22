@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BeHealthy_Java</string>
+    <string name="app_name">EatHealthy</string>
     <string name="app_in_name">EatHealthy</string>
     <string name="app_name_after">Питайся правильно с нами</string>
     <string name="title_activity_login">LoginActivity</string>

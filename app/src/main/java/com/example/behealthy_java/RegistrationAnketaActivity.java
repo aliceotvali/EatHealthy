@@ -53,17 +53,22 @@ public class RegistrationAnketaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    user.db = db;
                     user.gender = (String) gender_spinner.getSelectedItem();
 
-                    Cursor activityNum = db.rawQuery("SELECT _idActivity FROM ACTIVITY WHERE Description = '"+ activity_spinner.getSelectedItem().toString() + "'", null);
+                    Cursor activityNum = db.rawQuery("SELECT _IdActivity FROM ACTIVITY WHERE Description = '"+ activity_spinner.getSelectedItem().toString() + "'", null);
                     while(activityNum.moveToNext()){
                         user.ActivityNum = Integer.valueOf(activityNum.getString(activityNum.getColumnIndexOrThrow ("_IdActivity")));
                     }
+                    System.out.println("Активность юзера: " + user.ActivityNum);
+
 
                     Cursor purposeNum = db.rawQuery("SELECT _idPurpose FROM PURPOSE WHERE Description = '"+ purpose_spinner.getSelectedItem().toString() + "'", null);
                     while(purposeNum.moveToNext()){
                         user.PurposeNum = Integer.valueOf(purposeNum.getString(purposeNum.getColumnIndexOrThrow ("_idPurpose")));
                     }
+                    System.out.println("Цель юзера: " + user.PurposeNum);
+
                     user.age = Integer.valueOf(age_input.getText().toString());
                     user.height = Integer.valueOf(height_input.getText().toString());
                     user.weight = Integer.valueOf(weight_input.getText().toString());
@@ -74,9 +79,8 @@ public class RegistrationAnketaActivity extends AppCompatActivity {
                             "'" + user.age + "', '" + user.weight + "', '" + user.height +"')";
                     db.execSQL(insert_string2);
 
-                    user.setActivityName();
                     user.setPurposeName();
-
+                    user.setActivityName();
                     user.setCFPC();
 
                     user_room(v, user);
