@@ -44,28 +44,31 @@ public class RegisterLayoutActivity extends AppCompatActivity {
                 String username_text = username_test.getText().toString();
                 String password_text = String.valueOf(password_test.getText());
                 String checkpass = String.valueOf(checkpass_test.getText());
-                System.out.println("username_text:");
-                System.out.println(username_text);
 
-                String insert_string = "INSERT INTO USERS (Name, Password) VALUES ('" + username_text + "','" + password_text + "')";
+                if (!username_text.equals("") && !password_text.equals("")) {
 
-                try {
-                    if (password_text.equals(checkpass)) {
-                        db.execSQL(insert_string);
-                        String select_string = "SELECT _id FROM USERS WHERE Name='" + username_text + "' AND Password = '"+ password_text +"'";
-                        Cursor c = db.rawQuery(select_string, null);
-                        while(c.moveToNext()){
-                            UserID = c.getString(c.getColumnIndexOrThrow ("_id"));
+                    String insert_string = "INSERT INTO USERS (Name, Password) VALUES ('" + username_text + "','" + password_text + "')";
+
+                    try {
+                        if (password_text.equals(checkpass)) {
+                            db.execSQL(insert_string);
+                            String select_string = "SELECT _id FROM USERS WHERE Name='" + username_text + "' AND Password = '" + password_text + "'";
+                            Cursor c = db.rawQuery(select_string, null);
+                            while (c.moveToNext()) {
+                                UserID = c.getString(c.getColumnIndexOrThrow("_id"));
+                            }
+                            register(v, UserID, username_text, password_text);
+                        } else {
+                            Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Проверьте пароль!", Toast.LENGTH_LONG);
+                            toast.show();
                         }
-                        register(v, UserID, username_text, password_text);
-                    }
-                    else {
-                        Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Проверьте пароль!", Toast.LENGTH_LONG);
+                    } catch (SQLiteConstraintException e) {
+                        Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Такое имя уже есть!", Toast.LENGTH_LONG);
                         toast.show();
                     }
                 }
-                catch (SQLiteConstraintException e){
-                    Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Такое имя уже есть!", Toast.LENGTH_LONG);
+                else {
+                    Toast toast = Toast.makeText(RegisterLayoutActivity.this, "Поля не могут быть пустыми!", Toast.LENGTH_LONG);
                     toast.show();
                 }
             }

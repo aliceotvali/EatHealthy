@@ -53,71 +53,90 @@ public class RegistrationAnketaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    user.db = db;
-                    user.gender = (String) gender_spinner.getSelectedItem();
+                    if (Integer.valueOf(age_input.getText().toString()) >= 14 && Integer.valueOf(age_input.getText().toString()) < 88) {
+                        if (Integer.valueOf(height_input.getText().toString()) >= 100 && Integer.valueOf(height_input.getText().toString()) <= 210) {
+                            if (Integer.valueOf(weight_input.getText().toString()) >= 20 && Integer.valueOf(weight_input.getText().toString()) <= 250) {
+                                try {
+                                    user.db = db;
+                                    user.gender = (String) gender_spinner.getSelectedItem();
 
-                    Cursor activityNum = db.rawQuery("SELECT _IdActivity FROM ACTIVITY WHERE Description = '"+ activity_spinner.getSelectedItem().toString() + "'", null);
-                    while(activityNum.moveToNext()){
-                        user.ActivityNum = Integer.valueOf(activityNum.getString(activityNum.getColumnIndexOrThrow ("_IdActivity")));
+                                    Cursor activityNum = db.rawQuery("SELECT _IdActivity FROM ACTIVITY WHERE Description = '" + activity_spinner.getSelectedItem().toString() + "'", null);
+                                    while (activityNum.moveToNext()) {
+                                        user.ActivityNum = Integer.valueOf(activityNum.getString(activityNum.getColumnIndexOrThrow("_IdActivity")));
+                                    }
+                                    System.out.println("Активность юзера: " + user.ActivityNum);
+
+
+                                    Cursor purposeNum = db.rawQuery("SELECT _idPurpose FROM PURPOSE WHERE Description = '" + purpose_spinner.getSelectedItem().toString() + "'", null);
+                                    while (purposeNum.moveToNext()) {
+                                        user.PurposeNum = Integer.valueOf(purposeNum.getString(purposeNum.getColumnIndexOrThrow("_idPurpose")));
+                                    }
+                                    System.out.println("Цель юзера: " + user.PurposeNum);
+
+                                    user.age = Integer.valueOf(age_input.getText().toString());
+                                    user.height = Integer.valueOf(height_input.getText().toString());
+                                    user.weight = Integer.valueOf(weight_input.getText().toString());
+
+                                    //заполнение USER_INFO
+                                    String insert_string2 = "INSERT INTO USERS_INFO (_id, Gender, ActivityNum, Purpose2, Age, Weight, Height) " +
+                                            "VALUES ('" + user.UserID + "', '" + user.gender + "', '" + user.ActivityNum + "', '" + user.PurposeNum + "', " +
+                                            "'" + user.age + "', '" + user.weight + "', '" + user.height + "')";
+                                    db.execSQL(insert_string2);
+
+                                    user.setPurposeName();
+                                    user.setActivityName();
+                                    user.setCFPC();
+
+                                    user_room(v, user);
+                                } catch (NumberFormatException e) {
+                                    Toast toast = Toast.makeText(RegistrationAnketaActivity.this, "Заполните все поля!", Toast.LENGTH_LONG);
+                                    toast.show();
+                                } catch (SQLiteConstraintException e) {
+                                    user.db = db;
+                                    user.gender = (String) gender_spinner.getSelectedItem();
+                                    user.updateGender();
+
+                                    Cursor activityNum = db.rawQuery("SELECT _idActivity FROM ACTIVITY WHERE Description = '" + activity_spinner.getSelectedItem().toString() + "'", null);
+                                    while (activityNum.moveToNext()) {
+                                        user.ActivityNum = Integer.valueOf(activityNum.getString(activityNum.getColumnIndexOrThrow("_IdActivity")));
+                                    }
+                                    user.updateActivity();
+
+                                    Cursor purposeNum = db.rawQuery("SELECT _idPurpose FROM PURPOSE WHERE Description = '" + purpose_spinner.getSelectedItem().toString() + "'", null);
+                                    while (purposeNum.moveToNext()) {
+                                        user.PurposeNum = Integer.valueOf(purposeNum.getString(purposeNum.getColumnIndexOrThrow("_idPurpose")));
+                                    }
+
+                                    user.updatePurpose();
+                                    user.age = Integer.valueOf(age_input.getText().toString());
+                                    user.updateAge();
+                                    user.height = Integer.valueOf(height_input.getText().toString());
+                                    user.updateHeight();
+                                    user.weight = Integer.valueOf(weight_input.getText().toString());
+                                    user.updateWeight();
+                                    user.setActivityName();
+                                    user.setPurposeName();
+
+                                    user.setCFPC();
+
+                                    user_room(v, user);
+                                }
+                            } else {
+                                Toast toast = Toast.makeText(RegistrationAnketaActivity.this, "Ваш вес должен быть между 20 и 250!", Toast.LENGTH_LONG);
+                                toast.show();
+                            }
+                        } else {
+                            Toast toast = Toast.makeText(RegistrationAnketaActivity.this, "Ваш рост должен быть между 100 и 210!", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    } else {
+                        Toast toast = Toast.makeText(RegistrationAnketaActivity.this, "Ваш возраст должен быть между 14 и 88!", Toast.LENGTH_LONG);
+                        toast.show();
                     }
-                    System.out.println("Активность юзера: " + user.ActivityNum);
-
-
-                    Cursor purposeNum = db.rawQuery("SELECT _idPurpose FROM PURPOSE WHERE Description = '"+ purpose_spinner.getSelectedItem().toString() + "'", null);
-                    while(purposeNum.moveToNext()){
-                        user.PurposeNum = Integer.valueOf(purposeNum.getString(purposeNum.getColumnIndexOrThrow ("_idPurpose")));
-                    }
-                    System.out.println("Цель юзера: " + user.PurposeNum);
-
-                    user.age = Integer.valueOf(age_input.getText().toString());
-                    user.height = Integer.valueOf(height_input.getText().toString());
-                    user.weight = Integer.valueOf(weight_input.getText().toString());
-
-                    //заполнение USER_INFO
-                    String insert_string2 = "INSERT INTO USERS_INFO (_id, Gender, ActivityNum, Purpose2, Age, Weight, Height) " +
-                            "VALUES ('" + user.UserID + "', '" + user.gender + "', '" + user.ActivityNum + "', '" + user.PurposeNum+ "', " +
-                            "'" + user.age + "', '" + user.weight + "', '" + user.height +"')";
-                    db.execSQL(insert_string2);
-
-                    user.setPurposeName();
-                    user.setActivityName();
-                    user.setCFPC();
-
-                    user_room(v, user);
                 }
                 catch (NumberFormatException e){
                     Toast toast = Toast.makeText(RegistrationAnketaActivity.this, "Заполните все поля!", Toast.LENGTH_LONG);
                     toast.show();
-                }
-                catch (SQLiteConstraintException e){
-                    user.db = db;
-                    user.gender = (String) gender_spinner.getSelectedItem();
-                    user.updateGender();
-
-                    Cursor activityNum = db.rawQuery("SELECT _idActivity FROM ACTIVITY WHERE Description = '"+ activity_spinner.getSelectedItem().toString() + "'", null);
-                    while(activityNum.moveToNext()){
-                        user.ActivityNum = Integer.valueOf(activityNum.getString(activityNum.getColumnIndexOrThrow ("_IdActivity")));
-                    }
-                    user.updateActivity();
-
-                    Cursor purposeNum = db.rawQuery("SELECT _idPurpose FROM PURPOSE WHERE Description = '"+ purpose_spinner.getSelectedItem().toString() + "'", null);
-                    while(purposeNum.moveToNext()){
-                        user.PurposeNum = Integer.valueOf(purposeNum.getString(purposeNum.getColumnIndexOrThrow ("_idPurpose")));
-                    }
-
-                    user.updatePurpose();
-                    user.age = Integer.valueOf(age_input.getText().toString());
-                    user.updateAge();
-                    user.height = Integer.valueOf(height_input.getText().toString());
-                    user.updateHeight();
-                    user.weight = Integer.valueOf(weight_input.getText().toString());
-                    user.updateWeight();
-                    user.setActivityName();
-                    user.setPurposeName();
-
-                    user.setCFPC();
-
-                    user_room(v, user);
                 }
             }
         });

@@ -139,7 +139,6 @@ public class DiaryFragmentActivity extends Fragment{
         if (spinner.getSelectedItem()!=null) {
             String selected_product = spinner.getSelectedItem().toString();
             array.add(selected_product);
-            System.out.println(array);
             TextView product_textview = new TextView(getActivity());
             product_textview.setTextColor(Color.parseColor("#476dd6"));
             product_textview.setTextSize(14);

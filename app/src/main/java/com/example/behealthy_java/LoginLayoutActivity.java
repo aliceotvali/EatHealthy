@@ -51,24 +51,31 @@ public class LoginLayoutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username_text = username_test.getText().toString();
                 String password_text = String.valueOf(password_test.getText());
-                String check_string = "SELECT * FROM USERS WHERE Name='" + username_text + "' AND Password = '"+ password_text +"'";
-                Cursor c = db.rawQuery(check_string, null);
-                if (c.getCount()==0){
-                    Toast toast = Toast.makeText(LoginLayoutActivity.this, "Такого пользователя не существует!", Toast.LENGTH_LONG);
-                    toast.show();
+                if (!username_text.equals("") && !password_text.equals("")) {
+                    String check_string = "SELECT * FROM USERS WHERE Name='" + username_text + "' AND Password = '" + password_text + "'";
+                    Cursor c = db.rawQuery(check_string, null);
+                    if (c.getCount() == 0) {
+                        Toast toast = Toast.makeText(LoginLayoutActivity.this, "Такого пользователя не существует!", Toast.LENGTH_LONG);
+                        toast.show();
+                    } else {
+                        String select_string = "SELECT _id FROM USERS WHERE Name='" + username_text + "' AND Password = '" + password_text + "'";
+                        Cursor c2 = db.rawQuery(select_string, null);
+                        while (c2.moveToNext()) {
+                            UserID = c2.getString(c2.getColumnIndexOrThrow("_id"));
+                        }
+                        String check_akk_string = "SELECT * FROM USERS_INFO WHERE _id = '" + UserID + "'";
+                        Cursor c3 = db.rawQuery(check_akk_string, null);
+                        if (c3.getCount() == 0) {
+                            register(v, UserID, username_text, password_text);
+                        } else {
+                            user_room(v, FindUser(UserID, username_text, password_text));
+                        }
+                        ;
+                    }
                 }
                 else {
-                    String select_string = "SELECT _id FROM USERS WHERE Name='" + username_text + "' AND Password = '"+ password_text +"'";
-                    Cursor c2 = db.rawQuery(select_string, null);
-                    while(c2.moveToNext()){
-                        UserID = c2.getString(c2.getColumnIndexOrThrow("_id"));
-                    }
-                    String check_akk_string = "SELECT * FROM USERS_INFO WHERE _id = '" + UserID + "'";
-                    Cursor c3 = db.rawQuery(check_akk_string, null);
-                    if (c3.getCount()==0) {register(v, UserID, username_text, password_text);}
-                    else {
-                        user_room(v, FindUser(UserID, username_text, password_text));
-                    };
+                    Toast toast = Toast.makeText(LoginLayoutActivity.this, "Поля не могут быть пустыми!", Toast.LENGTH_LONG);
+                    toast.show();
                 }
             }
         });
