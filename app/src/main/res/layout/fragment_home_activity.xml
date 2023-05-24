@@ -62,6 +62,15 @@
                 android:text="Ваша цель: "
                 android:theme="@style/TextForUser" />
 
+
+            <TextView
+                android:id="@+id/BMR_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Индекс массы тела: "
+                android:theme="@style/TextForUser" />
+
             <TextView
                 android:id="@+id/ccal_view"
                 android:layout_width="match_parent"

@@ -20,7 +20,7 @@ public class HomeFragmentActivity extends Fragment {
     TextView height_view;
     TextView weight_view;
     TextView activity_view;
-    TextView purpose_view, ccal_view;
+    TextView purpose_view, ccal_view, BMR_view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class HomeFragmentActivity extends Fragment {
         activity_view = rootView.findViewById(R.id.activity_view);
         purpose_view = rootView.findViewById(R.id.purpose_view);
         ccal_view = rootView.findViewById(R.id.ccal_view);
+        BMR_view = rootView.findViewById(R.id.BMR_view);
 
         age_view.setText("Ваш возраст: " + user.getAge());
         height_view.setText("Ваш рост (см): " + user.getHeight());
@@ -43,6 +44,8 @@ public class HomeFragmentActivity extends Fragment {
         activity_view.setText("Ваш образ жизни: " + user.getActivity());
         purpose_view.setText("Ваша цель: " + user.getPurpose());
         ccal_view.setText("Суточная норма ккал: " + user.CaloriesNorm);
+        BMR_view.setText("Индекс массы тела: " + user.getBMR());
+
 
         change_btn.setOnClickListener(new View.OnClickListener() {
             @Override

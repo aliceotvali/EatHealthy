@@ -85,6 +85,8 @@ public class RegistrationAnketaActivity extends AppCompatActivity {
 
                                     user.setPurposeName();
                                     user.setActivityName();
+                                    user.updateBMR();
+                                    user.setBMR();
                                     user.setCFPC();
 
                                     user_room(v, user);
@@ -116,7 +118,8 @@ public class RegistrationAnketaActivity extends AppCompatActivity {
                                     user.updateWeight();
                                     user.setActivityName();
                                     user.setPurposeName();
-
+                                    user.updateBMR();
+                                    user.setBMR();
                                     user.setCFPC();
 
                                     user_room(v, user);

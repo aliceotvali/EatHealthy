@@ -61,16 +61,18 @@ public class MenuFragmentActivity extends Fragment {
         select_product_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String selected_product = product_spinner.getSelectedItem().toString();
-                if (user_products_array.contains(selected_product)==false){
-                    user_products_array.add(selected_product);
-                    System.out.println(user_products_array);
-                    TextView product_textview = new TextView(getActivity());
-                    product_textview.setTextColor(Color.parseColor("#705DC5"));
-                    product_textview.setText(selected_product);
-                    product_textview.setTextSize(16);
-                    linearLayout.addView(product_textview);
-                };
+                if (product_spinner.getSelectedItem() != null) {
+                    String selected_product = product_spinner.getSelectedItem().toString();
+                    if (!user_products_array.contains(selected_product)) {
+                        user_products_array.add(selected_product);
+                        System.out.println(user_products_array);
+                        TextView product_textview = new TextView(getActivity());
+                        product_textview.setTextColor(Color.parseColor("#705DC5"));
+                        product_textview.setText(selected_product);
+                        product_textview.setTextSize(16);
+                        linearLayout.addView(product_textview);
+                    }
+                }
             }
         });
 

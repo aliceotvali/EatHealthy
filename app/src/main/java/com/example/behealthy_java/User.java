@@ -18,7 +18,7 @@ public class User implements Serializable {
     public double ProteinsNorm;
     public double CarboNorm;
     public double CaloriesNorm;
-    public Integer BMR;
+    public double BMR;
     public transient SQLiteDatabase db;
     public Map breakfast_list, lunch_list, dinner_list;
     public String breakfast_str_view, lunch_str_view, dinner_str_view;
@@ -59,6 +59,16 @@ public class User implements Serializable {
     public String getActivity(){ return (this.activityName); }
 
     public String getPurpose(){ return (this.purposeName); }
+
+    public Double getBMR(){ return Math.round(this.BMR*100.00)/100.00; }
+
+    public void setBMR(){
+        String select_string = "SELECT BMR FROM USERS_INFO WHERE _id='" + this.UserID +"'";
+        Cursor c2 = db.rawQuery(select_string, null);
+        while(c2.moveToNext()){
+            this.BMR = Double.parseDouble(c2.getString(c2.getColumnIndexOrThrow("BMR")));
+        }
+    }
 
     public void setGender(){
         String select_string = "SELECT Gender FROM USERS_INFO WHERE _id='" + this.UserID +"'";
@@ -140,6 +150,13 @@ public class User implements Serializable {
 
     public void updateCarboNorm() {
         String select_string = "UPDATE USERS_INFO SET CarboNorm ='" + this.CarboNorm + "' WHERE _id = '" + this.UserID + "'";
+        db.execSQL(select_string);
+    }
+
+    public void updateBMR() {
+        Double val = Double.valueOf(this.height);
+        this.BMR = this.weight/(Math.pow((val/100), 2));
+        String select_string = "UPDATE USERS_INFO SET BMR ='" + Math.round(this.BMR*100.00)/100.00 + "' WHERE _id = '" + this.UserID + "'";
         db.execSQL(select_string);
     }
 

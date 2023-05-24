@@ -40,6 +40,18 @@ public class MenuRoomActivity extends AppCompatActivity {
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.open();
 
+        CheckMenu checkMenu = new CheckMenu();
+        checkMenu.db = db;
+        checkMenu.product_array = products_array;
+        checkMenu.user = user;
+        checkMenu.CheckMeal();
+        System.out.println("Лучшее меню из ЧекМеню в классе МенюРум: " + checkMenu.final_meal);
+
+        Integer first_meal = (Integer) checkMenu.final_meal.get(0);
+        Integer second_meal = (Integer) checkMenu.final_meal.get(1);
+        Integer third_meal = (Integer) checkMenu.final_meal.get(2);
+
+
         //названия
         breakfast_name = findViewById(R.id.breakfast_name_text);
         lunch_name = findViewById(R.id.lunch_name_text);
@@ -57,22 +69,7 @@ public class MenuRoomActivity extends AppCompatActivity {
         lunch_CPFC = findViewById(R.id.lunch_CPFC);
         dinner_CPFC = findViewById(R.id.dinner_CPFC);
         CPFC_final = findViewById(R.id.CPFC_final_text);
-
-        System.out.println("У меня есть массив " + products_array);
-        System.out.println("Мое имя из MenuRoomActivity " + user.name);
         CaloriesNorm = user.CaloriesNorm;
-
-        System.out.println("Норма ккал пользователя: " + CaloriesNorm);
-
-        List all_meals_array = SelectMealFromDBUpdated(products_array);
-        List breakfast_meals_array = ListOfMealsByGroup(1, all_meals_array);
-        List lunch_meals_array = ListOfMealsByGroup(2, all_meals_array);
-        List dinner_meals_array = ListOfMealsByGroup(3, all_meals_array);
-
-        //выбор трех блюд
-        Integer first_meal = SelectMealFromArray(breakfast_meals_array);
-        Integer second_meal = SelectMealFromArray(lunch_meals_array);
-        Integer third_meal = SelectMealFromArray(dinner_meals_array);
 
         //запоминаем ккал блюда
         Double first_meal_calories = GetCaloriesOfMeal(first_meal);
@@ -84,29 +81,11 @@ public class MenuRoomActivity extends AppCompatActivity {
         second_meal_coef = CountGrammOfMeal(second_meal_calories, 2);
         third_meal_coef = CountGrammOfMeal(third_meal_calories, 3);
 
-        //считаем граммы на нужную нам норму
-        Double first_meal_gramms = first_meal_coef*100;
-        Double second_meal_gramms = second_meal_coef*100;
-        Double third_meal_gramms = third_meal_coef*100;
-
-        System.out.println("Тут есть нужные продукты:" + all_meals_array);
-        System.out.println("Это массив возможных завтраков:" + breakfast_meals_array);
-        System.out.println("Это массив возможных обедов:" + lunch_meals_array);
-        System.out.println("Это массив возможных ужинов:" + dinner_meals_array);
-
-        System.out.println("Коэффицент для завтрака: " + first_meal_coef);
-        System.out.println("Коэффицент для обеда: " + second_meal_coef);
-        System.out.println("Коэффицент для ужина: " + third_meal_coef);
 
         //считаем состав завтрака
         String breakfast_structure = StructureOfMeal(first_meal, first_meal_coef);
-        System.out.println("Состав завтрака: " + breakfast_structure);
-
         String lunch_structure = StructureOfMeal(second_meal, second_meal_coef);
-        System.out.println("Состав обеда: " + lunch_structure);
-
         String dinner_structure = StructureOfMeal(third_meal, third_meal_coef);
-        System.out.println("Состав ужина: " + dinner_structure);
 
         Double b_ccal_final = Math.round(GetCaloriesOfMeal(first_meal)*first_meal_coef*100.00)/100.00;
         Double b_pro_final = Math.round(PFCofMeal(first_meal, "Proteins")*first_meal_coef*100.00)/100.00;
@@ -143,10 +122,6 @@ public class MenuRoomActivity extends AppCompatActivity {
         structure_dinner.setText(dinner_structure);
         description_dinner.setText(GetMealDescription(third_meal));
 
-        CheckMenu checkMenu = new CheckMenu();
-        checkMenu.db = db;
-        checkMenu.user = user;
-        checkMenu.CheckMeal(first_meal, second_meal, third_meal);
 
     }
 
@@ -182,47 +157,7 @@ public class MenuRoomActivity extends AppCompatActivity {
         return structure_str;
     }
 
-    //делаем массив завтраков/обедов/ужинов из общего массива блюд
-    public List ListOfMealsByGroup(Integer group_meal, List array){
-        List grouped_meals_array = new ArrayList<>(); //сюда запишем блюда конкретного приема пищи
-        //где-то тут мб лучше посчитать сколько раз блюдо входит в массив, если =>2,
-        // то в блюде используются нужные продукты =>2 раз => можно включить в множество.
-        Set set_of_meals = new HashSet(array); //тут
-        List list_from_set = new ArrayList();//и тут
-        list_from_set.addAll(set_of_meals);//и тут делаем массив уникальных значений блюд
 
-        for (int i=0; i<list_from_set.size(); i++){
-            String select_grouped_meal = "SELECT _idMeal FROM MEALS_MAIN WHERE IdGroupMeal = '" + group_meal + "' AND _idMeal = '" + list_from_set.get(i) + "'";
-            Cursor select_grouped_crs = db.rawQuery(select_grouped_meal, null);
-            while (select_grouped_crs.moveToNext()){
-                grouped_meals_array.add(select_grouped_crs.getString(select_grouped_crs.getColumnIndexOrThrow ("_idMeal")));
-            }
-        }
-        return grouped_meals_array;
-    }
-
-    //массив блюд, в которых есть продукты, введенные пользователем (блюда повторяются, не отсортированы)
-    public List SelectMealFromDBUpdated(List array){
-        List included_meals_array = new ArrayList<>();
-        for (int i=0; i<array.size(); i++) {
-            //достаем айди продукта по названию
-            String id_of_product = "SELECT _idProduct FROM PRODUCTS2 WHERE ProductName = '" + array.get(i) + "'";
-            Cursor product_crs = db.rawQuery(id_of_product, null);
-            Integer int_id_product = null;
-            while (product_crs.moveToNext()) {
-                int_id_product = product_crs.getInt(product_crs.getColumnIndexOrThrow("_idProduct"));
-            }
-            //заносим айди блюда с данным продуктом в массив включенных в рацион блюд
-            String include_str = "SELECT IdMeal FROM MEALS_STRUCTURE WHERE IdProduct = '" + int_id_product + "'";
-            Cursor included_product_crs = db.rawQuery(include_str, null);
-            Integer included_meal = null;
-            while (included_product_crs.moveToNext()) {
-                included_meal = included_product_crs.getInt(included_product_crs.getColumnIndexOrThrow("IdMeal"));
-                included_meals_array.add(included_meal);
-            }
-        }
-        return included_meals_array;
-    }
     //возвращаем калорийность блюда
     public Double GetCaloriesOfMeal(Integer id_meal){
         Double calories = null;

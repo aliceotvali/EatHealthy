@@ -104,6 +104,8 @@ public class LoginLayoutActivity extends AppCompatActivity {
         user.setPurpose();
         user.setActivityName();
         user.setPurposeName();
+        user.updateBMR();
+        user.setBMR();
         user.setCFPC();
 
         return (user);
